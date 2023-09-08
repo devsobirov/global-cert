@@ -21,7 +21,6 @@ class BlogController extends Controller
     public function show(Post $post)
     {
         $post->increment('views');
-        $courses = Course::getRandomCourses();
-        return view('blog-post', compact('post', 'courses'));
+        return view('blog-post', compact('post'));
     }
 }

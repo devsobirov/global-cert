@@ -23,6 +23,7 @@ class ProfileController extends Controller
         auth()->user()->update([
             'name' => $request->name,
             'email' => $request->email,
+            'telegram_chat_id' => $request->telegram_chat_id
         ]);
 
         return redirect()->back()->with('success', 'Profile updated.');

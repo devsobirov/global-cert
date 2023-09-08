@@ -19,7 +19,7 @@
                         Yangi yangilik kiritish
                     </h2>
                 </div>
-                <a href="{{route('courses.index')}}" class="btn btn-primary">Barcha yangiliklar</a>
+                <a href="{{route('posts.index')}}" class="btn btn-primary">Barcha yangiliklar</a>
             </div>
         </div>
     </div>

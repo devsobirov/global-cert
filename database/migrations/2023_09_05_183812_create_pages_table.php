@@ -6,24 +6,29 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+
     public function up(): void
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('pages', function (Blueprint $table) {
             $table->id();
 
+            $table->string('slug')->unique();
             $table->json('meta_title')->nullable();
             $table->json('meta_description')->nullable();
-            $table->json('title');
-            $table->string('image');
-            $table->json('excerpt')->nullable();
+            $table->json('title')->nullable();
             $table->json('content')->nullable();
-            $table->integer('views')->nullable()->default(2);
+            $table->string('header_img')->nullable();
+            $table->integer('menu_order')->nullable();
+            $table->foreignId('menu_id')->nullable()
+                ->references('id')->on('menus')
+                ->nullOnDelete()->cascadeOnUpdate();
+
             $table->timestamps();
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('pages');
     }
 };

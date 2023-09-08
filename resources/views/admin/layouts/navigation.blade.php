@@ -33,6 +33,26 @@
                         </a>
                     </li>
 
+
+                    <li class="nav-item @if(request()->routeIs('menu.*')) active @endif">
+                        <a class="nav-link" href="{{ route('menu.index') }}" >
+                            <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                <x-svg.news></x-svg.news>
+                            </span>
+                            <span class="nav-link-title">Menu</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item @if(request()->routeIs('pages.*')) active @endif">
+                        <a class="nav-link" href="{{ route('pages.index') }}" >
+                            <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                <x-svg.news></x-svg.news>
+                            </span>
+                            <span class="nav-link-title">Sahifalar</span>
+                        </a>
+                    </li>
+
+
                     <li class="nav-item dropdown @if(request()->routeIs('users.*')) active @endif">
                         <a class="nav-link dropdown-toggle" href="#navbar-extra" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false" >
                             <span class="nav-link-icon d-md-none d-lg-inline-block">

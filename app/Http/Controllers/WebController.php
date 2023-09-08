@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Banner;
 use App\Models\Course;
+use App\Models\Page;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -15,5 +16,15 @@ class WebController extends Controller
         $posts = Post::select(['id', 'title', 'image', 'views','created_at'])->orderBy('id', 'desc')->limit(8)->get();
 
         return view('homepage', compact('banners',  'posts'));
+    }
+
+    public function page(Page $page)
+    {
+        return view('page', compact('page'));
+    }
+
+    public function contact()
+    {
+        return view('contact');
     }
 }

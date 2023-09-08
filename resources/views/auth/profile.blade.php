@@ -61,6 +61,14 @@
                     @enderror
 
                     <div class="mb-3">
+                        <label class="form-label required">{{ __('Telegram chat id') }}</label>
+                        <input type="text" name="telegram_chat_id" class="form-control @error('telegram_chat_id') is-invalid @enderror" placeholder="{{ __('Name') }}" value="{{ old('telegram_chat_id', auth()->user()->telegram_chat_id) }}">
+                    </div>
+                    @error('name')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+
+                    <div class="mb-3">
                         <label class="form-label required">{{ __('New password') }}</label>
                         <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="{{ __('New password') }}">
                     </div>

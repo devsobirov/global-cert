@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\BlogController as Blog;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Admin\BannerController;
@@ -34,7 +35,8 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['auth']], func
 Route::group($localizedGroup, function() {
 
     Route::get('/', [WebController::class, 'homepage'])->name('web.home');
-    Route::get('/contact', [WebController::class, 'contact'])->name('web.contact');
+    Route::get('/contact', [ContactController::class, 'form'])->name('web.contact-form');
+    Route::post('/contact', [ContactController::class, 'save'])->name('web.contact-save');
 
     Route::controller(Blog::class)->prefix('blog')->as('web.blog.')->group(function () {
         Route::get('/', 'index')->name('index');

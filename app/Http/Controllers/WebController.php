@@ -22,9 +22,4 @@ class WebController extends Controller
     {
         return view('page', compact('page'));
     }
-
-    public function contact()
-    {
-        return view('contact');
-    }
 }

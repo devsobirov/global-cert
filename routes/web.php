@@ -43,6 +43,6 @@ Route::group($localizedGroup, function() {
         Route::get('/{post}', 'show')->name('show');
     });
 
-    Route::get('/{page:slug}', [WebController::class, 'page'])->name('web.page');
     Auth::routes(['register' => false, 'reset' => false, 'verify' => false]);
+    Route::get('/{page:slug}', [WebController::class, 'page'])->name('web.page');
 });

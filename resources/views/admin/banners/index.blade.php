@@ -21,7 +21,7 @@
                             <th>№</th>
                             <th>Rasm</th>
                             <th>Intro/Sarlavha</th>
-                            <th>Yaratilgan</th>
+                            <th>Link</th>
                             <th></th>
                         </tr>
                         </thead>
@@ -36,7 +36,13 @@
                                     <p>{{ $item->intro }}</p>
                                     <p>{!! $item->title !!}</p>
                                 </td>
-                                <td>{{ $item->created_at }}</td>
+                                <td>
+                                    @if($item->btn_label)
+                                        <a href="/{{$item->getUrl()}}" class="btn btn-primary" target="_blank">{{$item->btn_label}}</a>
+                                    @else
+                                        -
+                                    @endif
+                                </td>
                                 <td>
                                     <div class="d-flex align-items-center" style="gap:4px">
                                         <a href="{{route('banners.edit', $item->id)}}" class="btn btn-icon btn-success" title="Tahrirlash">

@@ -36,13 +36,16 @@ class BannerController extends Controller
         ]);
 
         $filename = \Str::random(8). '.'. $request->file('image')->getClientOriginalExtension();
-        $request->file('image')->move(public_path('assets/images/slides'), $filename);//storeAs('assets/images/slides', $filename, 'public');
+        $request->file('image')->move(public_path(Banner::BASE_IMG_DIR), $filename);
 
         $banner = new Banner();
         $banner->setTranslation('intro', config('app.defaultLocale', 'uz'), $request->intro);
         $banner->setTranslation('title', config('app.defaultLocale', 'uz'), $request->title);
+        $banner->setTranslation('btn_label', config('app.defaultLocale', 'uz'), $request->title);
         $banner->order = $request->order;
-        $banner->image = 'assets/images/slides/'.$filename;
+        $banner->image = Banner::BASE_IMG_DIR . DIRECTORY_SEPARATOR. $filename;
+        $banner->is_external_link = !empty($request->is_external_link);
+        $banner->btn_link = $request->btn_link;
         $banner->save();
 
         return redirect()->route('banners.edit', $banner->id)
@@ -54,21 +57,26 @@ class BannerController extends Controller
         if ($request->general) {
             $request->validate([
                 'order' => 'numeric',
-                'image' => 'nullable|image|max:3074'
+                'image' => 'nullable|image|max:3074',
+                'is_external_link' => 'nullable|boolean',
+                'btn_link' => 'nullable|string|max:255'
             ]);
 
             if ($img = $request->file('image')) {
                 $filename = \Str::random(8). '.'. $img->getClientOriginalExtension();
-                $request->file('image')->move(public_path('assets/images/slides'), $filename);
-                $banner->image = 'assets/images/slides/'.$filename;
+                $request->file('image')->move(public_path(Banner::BASE_IMG_DIR), $filename);
+                $banner->image = Banner::BASE_IMG_DIR . DIRECTORY_SEPARATOR. $filename;
             }
             $banner->order = $request->order;
+            $banner->is_external_link = !empty($request->is_external_link);
+            $banner->btn_link = $request->btn_link;
         }
 
         if ($request->lang) {
             $request->validate([
                 'lang.*.intro' => 'nullable|string',
-                'lang.*.title' => 'required|string'
+                'lang.*.title' => 'required|string',
+                'lang.*.btn_label' => 'nullable|string'
             ]);
             foreach ($request->lang as $locale => $data) {
                 $banner = $this->setTranslations($banner, $locale, $data);

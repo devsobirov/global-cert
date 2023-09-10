@@ -6,9 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('banners', function (Blueprint $table) {
@@ -16,15 +13,14 @@ return new class extends Migration
 
             $table->json('intro')->nullable();
             $table->json('title')->nullable();
+            $table->json('btn_label')->nullable();
             $table->string('image')->nullable();
+            $table->string('btn_link')->nullable();
+            $table->boolean('is_external_link')->nullable()->default(false);
             $table->integer('order')->nullable();
-            $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('banners');

@@ -42,6 +42,24 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
+                            <div class="mb-3">
+                                <label class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" value="1" @if($item->is_external_link ?? old('is_external_link')) checked @endif name="is_external_link">
+                                    <span class="form-check-label">Tashqi sayt uchun havola (Agar havola bo'lsa va u boshqa saytga olib borsa)</span>
+                                </label>
+                                @error('is_external_link')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label required">Havola uchun URL (agar havola bo'lsa) - agar ichki sahifa bolsa "Sahifa" urli, agar tashqi bolsa to'liq havola</label>
+                                <input type="text" name="btn_link" class="form-control @error('btn_link') is-invalid @enderror" placeholder="about-us" value="{{ $item->btn_link ?? old('btn_link') }}">
+                            </div>
+                            @error('btn_link')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+
                         </div>
                         <div class="col-md-2">
                             <img src="{{asset($item->image)}}" class="p-1 rounded border mt-4" style="display: flex; width: 150px" alt="">
@@ -60,7 +78,7 @@
                 <div class="card-body">
                     <div class="mb-3">
                         <label class="form-label required">Intro (kichik tekst, ixtiyoriy) - {{$data['native']}}</label>
-                        <input type="text" name="lang[{{$locale}}][intro]" class="form-control @error('intro') is-invalid @enderror" placeholder="Sanoat o'quv" value="{{ $item->getTranslation('intro', $locale, false) }}">
+                        <input type="text" name="lang[{{$locale}}][intro]" class="form-control @error('lang.'.$locale.'.intro') is-invalid @enderror" placeholder="Intro" value="{{ $item->getTranslation('intro', $locale, false) }}">
                     </div>
                     @error('lang.'.$locale.'.intro')
                     <div class="invalid-feedback">{{ $message }}</div>
@@ -68,11 +86,20 @@
 
                     <div class="mb-3">
                         <label class="form-label required">Asosiy tekst - {{$data['native']}}</label>
-                        <input type="text" name="lang[{{$locale}}][title]" class="form-control @error('title') is-invalid @enderror" placeholder="10 yillik tajriba" value="{{ $item->getTranslation('title', $locale, false) }}">
+                        <input type="text" name="lang[{{$locale}}][title]" class="form-control @error('lang.'.$locale.'.title') is-invalid @enderror" placeholder="10 yillik tajriba" value="{{ $item->getTranslation('title', $locale, false) }}">
                     </div>
                     @error('lang.'.$locale.'.title')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
+
+                    <div class="mb-3">
+                        <label class="form-label required">Havola uchun tekst (agar bo'lsa) - {{$data['native']}}</label>
+                        <input type="text" name="lang[{{$locale}}][btn_label]" class="form-control @error('lang.'.$locale.'btn_label') is-invalid @enderror" placeholder="Batafsil" value="{{ $item->getTranslation('btn_label', $locale, false) }}">
+                    </div>
+                    @error('lang.'.$locale.'btn_label')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+
                 </div>
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary">Saqlash</button>

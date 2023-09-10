@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Banner;
 use App\Models\Course;
+use App\Models\Menu;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -28,6 +29,10 @@ class DatabaseSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
+        }
+
+        if (!Menu::count()) {
+            $this->call(MenuTableSeeder::class);
         }
     }
 }

@@ -8,7 +8,7 @@ return [
     'supportedLocales' => [
         //'zh'          => ['name' => 'Chinese (Simplified)',   'script' => 'Hans', 'native' => '简体中文', 'regional' => 'zh_CN'],
         'ru'          => ['name' => 'Russian',                'script' => 'Cyrl', 'native' => 'Русский', 'regional' => 'ru_RU'],
-        'uz'          => ['name' => 'Uzbek (Latin)',          'script' => 'Latn', 'native' => 'Oʼzbekcha', 'regional' => 'uz_UZ'],
+        //'uz'          => ['name' => 'Uzbek (Latin)',          'script' => 'Latn', 'native' => 'Oʼzbekcha', 'regional' => 'uz_UZ'],
         'en'          => ['name' => 'English',                'script' => 'Latn', 'native' => 'English', 'regional' => 'en_GB'],
         //'ace'         => ['name' => 'Achinese',               'script' => 'Latn', 'native' => 'Aceh', 'regional' => ''],
         //'af'          => ['name' => 'Afrikaans',              'script' => 'Latn', 'native' => 'Afrikaans', 'regional' => 'af_ZA'],
@@ -331,7 +331,7 @@ return [
     // If you want to display the locales in particular order in the language selector you should write the order here.
     //CAUTION: Please consider using the appropriate locale code otherwise it will not work
     //Example: 'localesOrder' => ['es','en'],
-    'localesOrder' => ['uz', 'ru', 'en', 'zh'],
+    'localesOrder' => ['ru', 'en'],
 
     //  If you want to use custom lang url segments like 'at' instead of 'de-AT', you can use the mapping to tallow the LanguageNegotiator to assign the descired locales based on HTTP Accept Language Header. For example you want ot use 'at', so map HTTP Accept Language Header 'de-AT' to 'at' (['de-AT' => 'at']).
     'localesMapping' => [],

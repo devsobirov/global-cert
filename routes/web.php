@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\BlockController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\SettingController;
@@ -23,6 +24,7 @@ Route::prefix('home')->middleware('auth')->group(function () {
     Route::resource('banners', BannerController::class)->except(['show'])->names('banners');
     Route::resource('posts', PostController::class)->except(['show'])->names('posts');
     Route::resource('pages', PageController::class)->except(['show'])->names('pages');
+    Route::resource('blocks', BlockController::class)->except(['index'])->names('blocks');
     Route::resource('settings', SettingController::class)->only(['index', 'store'])->names('settings');
 
     Route::get('users', [UserController::class, 'index'])->name('users.index');

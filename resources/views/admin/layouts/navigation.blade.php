@@ -15,6 +15,24 @@
                         </a>
                     </li>
 
+                    <li class="nav-item dropdown @if(request()->routeIs('blocks.*')) active @endif">
+                        <a class="nav-link dropdown-toggle" href="#navbar-content" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false" >
+                            <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                <x-svg.settings></x-svg.settings>
+                            </span>
+                            <span class="nav-link-title">
+                            Kontent
+                            </span>
+                        </a>
+                        <div class="dropdown-menu">
+                            @foreach(\App\Models\Block::$types as $block)
+                            <a class="dropdown-item @if(request()->url() == route('blocks.show', ['block' => $block])) active @endif" href="{{ route('blocks.show', ['block' => $block]) }}">
+                                Blok - {{ucfirst($block)}}
+                            </a>
+                            @endforeach
+                        </div>
+                    </li>
+
                     <li class="nav-item @if(request()->routeIs('banners.*')) active @endif">
                         <a class="nav-link" href="{{ route('banners.index') }}" >
                             <span class="nav-link-icon d-md-none d-lg-inline-block">

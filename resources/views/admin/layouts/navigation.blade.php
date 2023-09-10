@@ -66,6 +66,9 @@
                             <a class="dropdown-item @if(request()->routeIs('users.*')) active @endif" href="{{ route('users.index') }}">
                                 Foydalanuvchilar
                             </a>
+                            <a class="dropdown-item @if(request()->routeIs('settings.*')) active @endif" href="{{ route('settings.index') }}">
+                                Umumiy ma'lumotlar
+                            </a>
                             <a class="dropdown-item" href="/translations" target="_blank">
                                 Tarjimalar
                             </a>

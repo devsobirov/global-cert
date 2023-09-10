@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\PageController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\BlogController as Blog;
 use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
@@ -22,6 +23,7 @@ Route::prefix('home')->middleware('auth')->group(function () {
     Route::resource('banners', BannerController::class)->except(['show'])->names('banners');
     Route::resource('posts', PostController::class)->except(['show'])->names('posts');
     Route::resource('pages', PageController::class)->except(['show'])->names('pages');
+    Route::resource('settings', SettingController::class)->only(['index', 'store'])->names('settings');
 
     Route::get('users', [UserController::class, 'index'])->name('users.index');
     Route::get('profile', [ProfileController::class, 'show'])->name('profile.show');

@@ -5,8 +5,9 @@
         <!-- Page title -->
         <div class="page-header d-print-none">
             <div class="d-flex justify-content-between align-items-center">
-                <h2 class="page-title">{{ucfirst($type)}} bloklari ({{$items->total()}})</h2>
-                <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Yangi yaratish</a>
+                <h2 class="page-title">Hodimlar</h2>
+                <a href="#" data-bs-toggle="modal" data-bs-target="#employee-{{null}}" class="btn btn-primary">Yangi yaratish</a>
+                @include('admin.employees.create-modal', ['item' => new \App\Models\Employee()])
             </div>
         </div>
     </div>
@@ -19,10 +20,10 @@
                         <thead>
                         <tr>
                             <th>№</th>
-                            <th>Title</th>
-                            <th>Description</th>
-                            <th>Icon</th>
-                            <th>URL</th>
+                            <th>Rasm</th>
+                            <th>FIO</th>
+                            <th>Lavozimi</th>
+                            <th>Status</th>
                             <th></th>
                         </tr>
                         </thead>
@@ -30,23 +31,21 @@
                         @forelse($items as $item)
                             <tr>
                                 <td>{{ $item->order }}</td>
-                                <td>{{$item->title}}</td>
-                                <td>{{$item->description}}</td>
-                                <td>{{$item->icon}}</td>
                                 <td>
-                                    @if($item->url)
-                                        <a href="/{{$item->getUrl()}}" class="btn btn-primary" target="_blank">{{$item->url}}</a>
-                                    @else
-                                        -
-                                    @endif
+                                    <img src="{{ asset($item->image) }}" style="display: block; width: 200px" alt="">
                                 </td>
                                 <td>
+                                    {{$item->name}} <br> Phone: {{$item->phone}} <br> Email: {{$item->email}}
+                                </td>
+                                <td>{{$item->position}}</td>
+                                <td>{{$item->status ? "Aktiv" : "O'chirilgan"}}</td>
+                                <td>
                                     <div class="d-flex align-items-center" style="gap:4px">
-                                        <a href="{{route('blocks.edit', $item->id)}}" class="btn btn-icon btn-success" title="Tahrirlash">
+                                        <a href="#" data-bs-toggle="modal" data-bs-target="#employee-{{$item->id}}" class="btn btn-icon btn-success" title="Tahrirlash">
                                             <x-svg.pen></x-svg.pen>
                                         </a>
-
-                                        <form action="{{route('blocks.destroy', $item->id)}}" method="POST">
+                                        @include('admin.employees.create-modal', ['item' => $item])
+                                        <form action="{{route('employees.destroy', $item->id)}}" method="POST">
                                             @csrf @method('DELETE')
                                             <button class="btn btn-icon btn-danger" onclick="return confirm('O\'chirishni xoxlaysizmi?')">
                                                 <x-svg.trash></x-svg.trash>
@@ -57,7 +56,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="6" class="text-center">{{ucfirst($type)}} bloklari topilmadi</td>
+                                <td colspan="6" class="text-center">Hodimlar topilmadi</td>
                             </tr>
                         @endforelse
                         </tbody>
@@ -71,7 +70,4 @@
             </div>
         </div>
     </div>
-
-    @include('admin.blocks.create-modal')
-
 @endsection

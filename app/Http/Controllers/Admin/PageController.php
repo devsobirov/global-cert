@@ -42,7 +42,7 @@ class PageController extends Controller
 
         $page->save();
 
-        return redirect()->route('admin.pages.edit', $page->id)
+        return redirect()->route('pages.edit', $page->id)
             ->with('success', "Muvaffaqiyatli yaratildi!");
     }
 

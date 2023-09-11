@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\BlockController;
 use App\Http\Controllers\Admin\EmployeeController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\PageController;
+use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\BlogController as Blog;
 use App\Http\Controllers\ContactController;
@@ -26,7 +27,8 @@ Route::prefix('home')->middleware('auth')->group(function () {
     Route::resource('posts', PostController::class)->except(['show'])->names('posts');
     Route::resource('pages', PageController::class)->except(['show'])->names('pages');
     Route::resource('blocks', BlockController::class)->except(['index', 'create'])->names('blocks');
-    Route::resource('employees', EmployeeController::class)->except(['show', 'create', 'edit'])->names('employees');
+    Route::apiResource('employees', EmployeeController::class)->except(['show'])->names('employees');
+    Route::apiResource('projects', ProjectController::class)->except('show')->names('projects');
     Route::resource('settings', SettingController::class)->only(['index', 'store'])->names('settings');
 
     Route::get('users', [UserController::class, 'index'])->name('users.index');

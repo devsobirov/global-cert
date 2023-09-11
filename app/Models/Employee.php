@@ -18,5 +18,5 @@ class Employee extends Model
 
     public $translatable = ['name', 'position'];
 
-    const BASE_IMAGE_PATH = 'assets/images/employees';
+    const BASE_IMAGE_PATH = 'assets/images/team';
 }

@@ -15,7 +15,7 @@
                         </a>
                     </li>
 
-                    <li class="nav-item dropdown @if(request()->routeIs('blocks.*') || request()->routeIs('employees.*')) active @endif">
+                    <li class="nav-item dropdown @if(request()->routeIs('blocks.*') || request()->routeIs('employees.*') || request()->routeIs('projects.*')) active @endif">
                         <a class="nav-link dropdown-toggle" href="#navbar-content" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false" >
                             <span class="nav-link-icon d-md-none d-lg-inline-block">
                                 <x-svg.settings></x-svg.settings>
@@ -32,6 +32,9 @@
                             @endforeach
                             <a class="dropdown-item @if(request()->routeIs('employees.*')) active @endif" href="{{ route('employees.index') }}">
                                 Hodimlar
+                            </a>
+                            <a class="dropdown-item @if(request()->routeIs('projects.*')) active @endif" href="{{ route('projects.index') }}">
+                                Portfolio
                             </a>
                         </div>
                     </li>

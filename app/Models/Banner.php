@@ -12,7 +12,7 @@ class Banner extends Model implements Linkable
 {
     use HasFactory, HasTranslations;
 
-    const BASE_IMG_DIR = 'assets/images/slides';
+    const BASE_IMG_DIR = 'assets/images/slider';
 
     protected $guarded = false;
 

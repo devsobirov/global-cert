@@ -15,36 +15,12 @@
                         </a>
                     </li>
 
-                    <li class="nav-item dropdown @if(request()->routeIs('blocks.*') || request()->routeIs('employees.*') || request()->routeIs('projects.*')) active @endif">
-                        <a class="nav-link dropdown-toggle" href="#navbar-content" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false" >
+                    <li class="nav-item @if(request()->routeIs('certificates.*')) active @endif">
+                        <a class="nav-link" href="{{ route('certificates.index') }}" >
                             <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                <x-svg.settings></x-svg.settings>
+                                <x-svg.folder></x-svg.folder>
                             </span>
-                            <span class="nav-link-title">
-                            Kontent
-                            </span>
-                        </a>
-                        <div class="dropdown-menu">
-                            @foreach(\App\Models\Block::$types as $block)
-                            <a class="dropdown-item @if(request()->url() == route('blocks.show', ['block' => $block])) active @endif" href="{{ route('blocks.show', ['block' => $block]) }}">
-                                Blok - {{ucfirst($block)}}
-                            </a>
-                            @endforeach
-                            <a class="dropdown-item @if(request()->routeIs('employees.*')) active @endif" href="{{ route('employees.index') }}">
-                                Hodimlar
-                            </a>
-                            <a class="dropdown-item @if(request()->routeIs('projects.*')) active @endif" href="{{ route('projects.index') }}">
-                                Portfolio
-                            </a>
-                        </div>
-                    </li>
-
-                    <li class="nav-item @if(request()->routeIs('banners.*')) active @endif">
-                        <a class="nav-link" href="{{ route('banners.index') }}" >
-                            <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                <x-svg.image></x-svg.image>
-                            </span>
-                            <span class="nav-link-title">Bannerlar</span>
+                            <span class="nav-link-title">Sertifikatlar</span>
                         </a>
                     </li>
 
@@ -61,7 +37,7 @@
                     <li class="nav-item @if(request()->routeIs('menu.*')) active @endif">
                         <a class="nav-link" href="{{ route('menu.index') }}" >
                             <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                <x-svg.news></x-svg.news>
+                                <x-svg.list></x-svg.list>
                             </span>
                             <span class="nav-link-title">Menu</span>
                         </a>
@@ -70,12 +46,47 @@
                     <li class="nav-item @if(request()->routeIs('pages.*')) active @endif">
                         <a class="nav-link" href="{{ route('pages.index') }}" >
                             <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                <x-svg.news></x-svg.news>
+                                <x-svg.page></x-svg.page>
                             </span>
                             <span class="nav-link-title">Sahifalar</span>
                         </a>
                     </li>
 
+                    <li class="nav-item dropdown @if(request()->routeIs('blocks.*') || request()->routeIs('employees.*') || request()->routeIs('projects.*') || request()->routeIs('banners.*')) active @endif">
+                        <a class="nav-link dropdown-toggle" href="#navbar-content" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false" >
+                            <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                <x-svg.content></x-svg.content>
+                            </span>
+                            <span class="nav-link-title">
+                            Kontent
+                            </span>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item @if(request()->routeIs('banners.*')) active @endif" href="{{ route('banners.index') }}">
+                                Bannerlar
+                            </a>
+                            @foreach(\App\Models\Block::$types as $block)
+                                <a class="dropdown-item @if(request()->url() == route('blocks.show', ['block' => $block])) active @endif" href="{{ route('blocks.show', ['block' => $block]) }}">
+                                    Blok - {{ucfirst($block)}}
+                                </a>
+                            @endforeach
+                            <a class="dropdown-item @if(request()->routeIs('employees.*')) active @endif" href="{{ route('employees.index') }}">
+                                Hodimlar
+                            </a>
+                            <a class="dropdown-item @if(request()->routeIs('projects.*')) active @endif" href="{{ route('projects.index') }}">
+                                Portfolio
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item @if(request()->routeIs('pages.*')) active @endif">
+                        <a class="nav-link" href="#" >
+                            <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                <x-svg.envelope></x-svg.envelope>
+                            </span>
+                            <span class="nav-link-title">Xabarlar</span>
+                        </a>
+                    </li>
 
                     <li class="nav-item dropdown @if(request()->routeIs('users.*')) active @endif">
                         <a class="nav-link dropdown-toggle" href="#navbar-extra" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false" >

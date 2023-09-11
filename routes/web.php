@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\BlockController;
+use App\Http\Controllers\Admin\CertificateController;
 use App\Http\Controllers\Admin\EmployeeController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\PageController;
@@ -29,6 +30,7 @@ Route::prefix('home')->middleware('auth')->group(function () {
     Route::resource('blocks', BlockController::class)->except(['index', 'create'])->names('blocks');
     Route::apiResource('employees', EmployeeController::class)->except(['show'])->names('employees');
     Route::apiResource('projects', ProjectController::class)->except('show')->names('projects');
+    Route::apiResource('certificates', CertificateController::class)->except('show')->names('certificates');
     Route::resource('settings', SettingController::class)->only(['index', 'store'])->names('settings');
 
     Route::get('users', [UserController::class, 'index'])->name('users.index');

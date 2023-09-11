@@ -13,7 +13,7 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('email')->nullable();
             $table->string('subject')->nullable();
-            $table->string('content')->nullable();
+            $table->text('content')->nullable();
             $table->json('payload')->nullable();
             $table->timestamps();
         });

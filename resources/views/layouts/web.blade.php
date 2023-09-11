@@ -55,6 +55,11 @@
     <script src="{{asset('assets/js/theme-plugins.js')}}" type="text/javascript"></script>
     <script src="{{asset('assets/js/main.js')}}" type="text/javascript"></script>
 
+    <script>
+        if (("{{session('callback')}}")) {
+            $('#callbackModal').modal('show');
+        }
+    </script>
 </div>
 </body>
 </html>

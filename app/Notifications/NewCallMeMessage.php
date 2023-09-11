@@ -4,13 +4,13 @@ namespace App\Notifications;
 
 use App\Models\Message;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Notification;
 use NotificationChannels\Telegram\TelegramMessage;
 
-class NewFeedbackMessage extends Notification
+class NewCallMeMessage extends Notification
 {
     use Queueable;
+
 
     public function __construct(public Message $message)
     {
@@ -26,10 +26,8 @@ class NewFeedbackMessage extends Notification
     {
         return TelegramMessage::create()
             ->to($notifiable->telegram_chat_id)
-            ->content("Получен новый обратный связь")
+            ->content("Получена заявка на обратный звонок")
             ->line("Отправитель: *{$this->message->name}*")
-            ->line("Контакты: *{$this->message->email}*")
-            ->line("Компания: *{$this->message->subject}*")
-            ->line("Сообщение: *{$this->message->content}*");
+            ->line("Контакты: *{$this->message->email}*");
     }
 }

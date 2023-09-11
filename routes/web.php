@@ -47,6 +47,7 @@ Route::group($localizedGroup, function() {
     Route::get('/', [WebController::class, 'homepage'])->name('web.home');
     Route::get('/contact', [ContactController::class, 'form'])->name('web.contact-form');
     Route::post('/contact', [ContactController::class, 'save'])->name('web.contact-save');
+    Route::post('/callback', [ContactController::class, 'callback'])->name('web.contact-callback');
 
     Route::controller(Blog::class)->prefix('blog')->as('web.blog.')->group(function () {
         Route::get('/', 'index')->name('index');

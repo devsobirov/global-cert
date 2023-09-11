@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Banner;
 use App\Models\Certificate;
 use App\Models\Course;
+use App\Models\Message;
 use App\Models\Page;
 use App\Models\Post;
 use App\Models\User;
@@ -30,5 +31,11 @@ class HomeController extends Controller
             'pages' => Page::count(),
             'users' => User::count()
         ]);
+    }
+
+    public function messages()
+    {
+        $items = Message::orderBy('id', 'desc')->paginate(15);
+        return view('admin.messages.index', compact('items'));
     }
 }

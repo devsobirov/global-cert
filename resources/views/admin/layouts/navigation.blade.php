@@ -79,8 +79,8 @@
                         </div>
                     </li>
 
-                    <li class="nav-item @if(request()->routeIs('pages.*')) active @endif">
-                        <a class="nav-link" href="#" >
+                    <li class="nav-item @if(request()->routeIs('messages')) active @endif">
+                        <a class="nav-link" href="{{route('messages')}}" >
                             <span class="nav-link-icon d-md-none d-lg-inline-block">
                                 <x-svg.envelope></x-svg.envelope>
                             </span>

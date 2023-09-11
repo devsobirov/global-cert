@@ -22,6 +22,7 @@ $localizedGroup = ['prefix' => LaravelLocalization::setLocale(),'middleware' => 
 
 Route::prefix('home')->middleware('auth')->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::get('/messages', [HomeController::class, 'messages'])->name('messages');
 
     Route::resource('menus', MenuController::class)->except('show')->names('menu');
     Route::resource('banners', BannerController::class)->except(['show'])->names('banners');

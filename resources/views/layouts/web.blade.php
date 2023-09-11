@@ -14,6 +14,7 @@
     <script src="{{asset('assets/classes/js/jqueryui.js')}}" defer></script>
 
     <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/theme-plugins.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
 

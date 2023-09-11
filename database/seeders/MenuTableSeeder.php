@@ -17,7 +17,8 @@ class MenuTableSeeder extends Seeder
                     'en' => 'About Company'
                 ]),
                 'order' => 1,
-                'url' => 'company'
+                'url' => 'company',
+                'show_in_footer' => true
             ],
             [
                 'title' => json_encode([
@@ -25,7 +26,8 @@ class MenuTableSeeder extends Seeder
                     'en' => 'Services'
                 ]),
                 'order' => 4,
-                'url' => ''
+                'url' => '',
+                'show_in_footer' => true
             ],
             [
                 'title' => json_encode([
@@ -33,7 +35,8 @@ class MenuTableSeeder extends Seeder
                     'en' => 'Blog'
                 ]),
                 'order' => 5,
-                'url' => 'blog'
+                'url' => 'blog',
+                'show_in_footer' => true
             ],
             [
                 'title' => json_encode([
@@ -41,7 +44,8 @@ class MenuTableSeeder extends Seeder
                     'en' => 'Portfolio'
                 ]),
                 'order' => 6,
-                'url' => 'portfolio'
+                'url' => 'portfolio',
+                'show_in_footer' => true
             ],
             [
                 'title' => json_encode([
@@ -49,7 +53,8 @@ class MenuTableSeeder extends Seeder
                     'en' => 'Contact'
                 ]),
                 'order' => 10,
-                'url' => 'contact'
+                'url' => 'contact',
+                'show_in_footer' => true
             ],
         ];
 

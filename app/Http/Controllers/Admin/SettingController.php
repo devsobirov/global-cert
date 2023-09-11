@@ -36,7 +36,6 @@ class SettingController extends Controller
         }
 
         $settings->save();
-
         return redirect()->back()->with('success', "Muvaffaqiyatli saqlandi");
     }
 
@@ -47,6 +46,6 @@ class SettingController extends Controller
             $filename = $field.'.'.$file->getClientOriginalExtension();
             $file->move(public_path(), $filename);
         }
-        return $filename;
+        return $filename."?v=".rand(1111,9999);
     }
 }

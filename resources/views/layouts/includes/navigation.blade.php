@@ -16,6 +16,15 @@
                         @endif
                     </li>
                 @endforeach
+                @foreach(LaravelLocalization::getLocalesOrder() as $localeCode => $properties)
+                    @if($localeCode != app()->getLocale())
+                        <li class="">
+                            <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                {{ ucfirst($properties['native']) }}
+                            </a>
+                        </li>
+                    @endif
+                @endforeach
             </ul>
         </div>
     </nav>

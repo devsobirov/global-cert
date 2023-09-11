@@ -21,6 +21,9 @@ class BlogController extends Controller
     public function show(Post $post)
     {
         $post->increment('views');
-        return view('blog-post', compact('post'));
+        $latestPosts = Post::select(['id', 'title', 'image', 'views', 'created_at'])
+            ->whereNot('id', $post->id)
+            ->orderBy('id', 'desc')->limit(8)->get();
+        return view('blog-post', compact('post', 'latestPosts'));
     }
 }

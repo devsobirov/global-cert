@@ -43,7 +43,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label required">Intro (kichik tekst, ixtiyoriy) - O'zbekcha</label>
+                        <label class="form-label required">Intro (kichik tekst, ixtiyoriy) - {{config('app.defaultLocaleNative')}}</label>
                         <input type="text" name="intro" class="form-control @error('intro') is-invalid @enderror" placeholder="Sanoat o'quv" value="{{ old('intro') }}">
                     </div>
                     @error('intro')
@@ -51,7 +51,7 @@
                     @enderror
 
                     <div class="mb-3">
-                        <label class="form-label required">Asosiy tekst - O'zbekcha</label>
+                        <label class="form-label required">Asosiy tekst - {{config('app.defaultLocaleNative')}}</label>
                         <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" placeholder="10 yillik tajriba" value="{{ old('title') }}">
                     </div>
                     @error('title')
@@ -59,7 +59,7 @@
                     @enderror
 
                     <div class="mb-3">
-                        <label class="form-label required">Havola uchun tekst (agar bo'lsa) - O'zbekcha</label>
+                        <label class="form-label required">Havola uchun tekst (agar bo'lsa) - {{config('app.defaultLocaleNative')}}</label>
                         <input type="text" name="btn_label" class="form-control @error('btn_label') is-invalid @enderror" placeholder="Batafsil" value="{{ old('btn_label') }}">
                     </div>
                     @error('btn_label')

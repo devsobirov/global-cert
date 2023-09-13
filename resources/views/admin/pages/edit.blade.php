@@ -61,7 +61,7 @@
                         <select name="parent_id" id="parent_id" class="form-select">
                             <option value="">Ona menu mavjud emas</option>
                             @foreach($menus as $parent)
-                                <option value="{{$parent->id}}" @if($parent->id == $item->menu_id) selected @endif>{{$parent->name}}</option>
+                                <option value="{{$parent->id}}" @if($parent->id == $item->menu_id) selected @endif>{{$parent->title}}</option>
                             @endforeach
                         </select>
                     </div>

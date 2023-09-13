@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Menu;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MenuController extends Controller
 {
@@ -62,7 +63,11 @@ class MenuController extends Controller
 
     public function destroy(Menu $menu)
     {
-        dd($menu);
+        DB::table('menus')->where('parent_id', $menu->id)
+            ->update(['parent_id' => null]);
+
+        $menu->delete();
+        return redirect()->back()->with("Muvaffaqiyatli o'chirildi");
     }
 
     protected function getValidatedData(Request $request)

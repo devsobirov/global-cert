@@ -46,6 +46,9 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['auth']], func
 Route::group($localizedGroup, function() {
 
     Route::get('/', [WebController::class, 'homepage'])->name('web.home');
+    Route::get('/portfolio', [WebController::class, 'portfolio'])->name('web.portfolio');
+    Route::match(['get', 'post'], '/check-certificate', [WebController::class, 'certificate'])->name('web.certificate');
+    Route::get('/contact', [ContactController::class, 'form'])->name('web.contact-form');
     Route::get('/contact', [ContactController::class, 'form'])->name('web.contact-form');
     Route::post('/contact', [ContactController::class, 'save'])->name('web.contact-save');
     Route::post('/callback', [ContactController::class, 'callback'])->name('web.contact-callback');

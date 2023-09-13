@@ -52,7 +52,7 @@
                         <select name="parent_id" id="parent_id" class="form-select">
                             <option value="">Ona menu mavjud emas</option>
                             @foreach($menus as $parent)
-                                <option value="{{$parent->id}}">{{$parent->name}}</option>
+                                <option value="{{$parent->id}}">{{$parent->title}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -66,7 +66,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label required">Sarlavha - O'zbekcha</label>
+                        <label class="form-label required">Sarlavha - {{config('app.defaultLocaleNative')}}</label>
                         <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" placeholder="..." value="{{ old('title') }}">
                     </div>
                     @error('title')
@@ -74,7 +74,7 @@
                     @enderror
 
                     <div class="mb-3">
-                        <label class="form-label required">Meta-title - O'zbekcha</label>
+                        <label class="form-label required">Meta-title - {{config('app.defaultLocaleNative')}}</label>
                         <input type="text" name="meta_title" class="form-control @error('meta_title') is-invalid @enderror" placeholder="..." value="{{ old('meta_title') }}">
                     </div>
                     @error('meta_title')
@@ -82,7 +82,7 @@
                     @enderror
 
                     <div class="mb-3">
-                        <label class="form-label required">Meta-description - O'zbekcha</label>
+                        <label class="form-label required">Meta-description - {{config('app.defaultLocaleNative')}}</label>
                         <input type="text" name="meta_description" class="form-control @error('meta_description') is-invalid @enderror" placeholder="..." value="{{ old('meta_description') }}">
                     </div>
                     @error('meta_description')
@@ -90,7 +90,7 @@
                     @enderror
 
                     <div class="mb-3">
-                        <label class="form-label required">Sahifa kontenti - O'zbekcha</label>
+                        <label class="form-label required">Sahifa kontenti - {{config('app.defaultLocaleNative')}}</label>
                         <textarea name="content" class="form-control @error('content') is-invalid @enderror" placeholder="...">{{ old('content') }}</textarea>
                     </div>
                     @error('content')

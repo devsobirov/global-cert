@@ -26,7 +26,7 @@
 
                 <div class="card-body">
                     <div class="mb-3">
-                        <label class="form-label required">Sarlavha - O'zbekcha</label>
+                        <label class="form-label required">Sarlavha - {{config('app.defaultLocaleNative')}}</label>
                         <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" placeholder="10 yillik tajriba" value="{{ old('title') }}">
                     </div>
                     @error('title')
@@ -54,7 +54,7 @@
                         <select name="parent_id" id="parent_id" class="form-select">
                             <option value="">Ona menu mavjud emas</option>
                             @foreach($parents as $parent)
-                                <option value="{{$parent->id}}">{{$parent->name}}</option>
+                                <option value="{{$parent->id}}">{{$parent->title}}</option>
                             @endforeach
                         </select>
                     </div>

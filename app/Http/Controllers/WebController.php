@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Banner;
 use App\Models\Block;
-use App\Models\Course;
+use App\Models\Certificate;
 use App\Models\Employee;
 use App\Models\Page;
 use App\Models\Post;
@@ -28,5 +28,27 @@ class WebController extends Controller
     {
         $latestPosts = Post::select(['id', 'title', 'image', 'views', 'created_at'])->orderBy('id', 'desc')->limit(6)->get();;
         return view('page', compact('page', 'latestPosts'));
+    }
+
+
+    public function certificate(Request $request)
+    {
+        $code = null;
+        $certificate = null;
+        $attempted = !!$request->post('attempted');
+
+        if ($attempted) {
+            $request->validate(['certificate' => 'required|string']);
+            $code = $request->post('certificate');
+            $certificate = Certificate::first(); //where('number', $code)->
+        }
+
+        return view('certificate', compact('code', 'certificate', 'attempted'));
+    }
+
+    public function portfolio()
+    {
+        $items = Project::orderBy('id', 'desc')->paginate(20);
+        return view('portfolio', compact('items'));
     }
 }

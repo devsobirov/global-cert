@@ -3,14 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Banner;
 use App\Models\Certificate;
-use App\Models\Course;
 use App\Models\Message;
 use App\Models\Page;
 use App\Models\Post;
 use App\Models\User;
-use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {

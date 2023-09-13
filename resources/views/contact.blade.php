@@ -5,8 +5,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
-                    <h2>Название сайта</h2>
-                    <ul class="bread-list"><li><div class="speedbar"><div class="over"><span itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><meta itemprop="position" content="1"><a href="http://xorazm-ttk.uz/" itemprop="item"><span itemprop="name">Xorazm viloyati TTK</span></a></span> &raquo; Обратная связь</span></div></div></li></ul>
+                    <h2>Обратная связь</h2>
+                    <ul class="bread-list">
+                        <li>
+                            <div class="speedbar">
+                                <a href="{{route('web.home')}}"><span> Главная</span></a>
+                                <span> &raquo; Обратная связь</span>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>

@@ -40,10 +40,19 @@ class MenuTableSeeder extends Seeder
             ],
             [
                 'title' => json_encode([
+                    'ru' => 'Сертификаты',
+                    'en' => 'Certificates'
+                ]),
+                'order' => 6,
+                'url' => 'check-certificate',
+                'show_in_footer' => false
+            ],
+            [
+                'title' => json_encode([
                     'ru' => 'Портфолио',
                     'en' => 'Portfolio'
                 ]),
-                'order' => 6,
+                'order' => 7,
                 'url' => 'portfolio',
                 'show_in_footer' => true
             ],

@@ -58,6 +58,6 @@ class Menu extends Model implements Linkable
 
     public static function getParentsForList() : Collection
     {
-        return self::select('id', 'title')->whereNull('url')->orderBy('order')->get();
+        return self::select('id', 'title', 'url')->where('url', '')->whereNull('parent_id')->orderBy('order')->get();
     }
 }

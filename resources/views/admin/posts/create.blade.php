@@ -40,7 +40,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label required">Sarlavha - O'zbekcha</label>
+                        <label class="form-label required">Sarlavha - {{config('app.defaultLocaleNative')}}</label>
                         <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" placeholder="..." value="{{ old('title') }}">
                     </div>
                     @error('title')
@@ -48,7 +48,7 @@
                     @enderror
 
                     <div class="mb-3">
-                        <label class="form-label required">Yangiliklar matni - O'zbekcha</label>
+                        <label class="form-label required">Yangiliklar matni - {{config('app.defaultLocaleNative')}}</label>
                         <textarea name="content" class="form-control @error('content') is-invalid @enderror" placeholder="...">{{ old('content') }}</textarea>
                     </div>
                     @error('title')

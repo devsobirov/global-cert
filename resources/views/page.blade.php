@@ -9,14 +9,9 @@
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <h2>{{$page->title}}</h2>
-                    <ul class="bread-list">
-                        <li>
-                            <div class="speedbar">
-                                <a href="{{route('web.home')}}"><span> Homepage</span></a>
-                                <span> &raquo; {{$page->title}}</span>
-                            </div>
-                        </li>
-                    </ul>
+                    <x-breadcrumbs>
+                        <span> &raquo; {{$page->title}}</span>
+                    </x-breadcrumbs>
                 </div>
             </div>
         </div>

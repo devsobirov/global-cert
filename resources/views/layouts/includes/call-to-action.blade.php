@@ -3,8 +3,8 @@
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="call-to-main">
-                    <h2>Мы работаем для <span>Вас уже более 5 лет для</span> лучших результатов</h2>
-                    <span data-toggle="modal" data-target="#callbackModal" class="btn primary"><i class="fa fa-send"></i>Заказать звонок</span>
+                    <h2>@lang('main.callback_h2')</h2>
+                    <span data-toggle="modal" data-target="#callbackModal" class="btn primary"><i class="fa fa-send"></i>@lang('main.callback_btn')</span>
                 </div>
             </div>
         </div>
@@ -18,7 +18,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Заказать звонок</h4>
+                <h4 class="modal-title" id="myModalLabel">@lang('main.callback_btn')</h4>
             </div>
             <div class="modal-body contact-us" style="float: unset; display: block">
                 <div style="padding: 0 20px">
@@ -42,15 +42,15 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="name">Ваше имя:</label>
-                            <input type="text" name="name" placeholder="Ваше имя" required="required" value="{{old('name')}}">
+                            <label for="name">@lang('main.contact_name'):</label>
+                            <input type="text" name="name" placeholder="@lang('main.contact_name')" required="required" value="{{old('name')}}">
                             @error('name') <p class="text-danger" style="padding: 0 10px">{{$message}}</p> @enderror
                         </div>
                     </div>
 
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="email">Ваш номер телефона:</label>
+                            <label for="email">@lang('main.callback_phone'):</label>
                             <input type="text" name="email" placeholder="+7ххххххххх" required="required" value="{{old('email')}}">
                             @error('email') <p class="text-danger" style="padding: 0 10px">{{$message}}</p> @enderror
                         </div>
@@ -59,8 +59,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
-                <button type="submit" class="btn btn-primary">Отправить</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">@lang('main.callback_close')</button>
+                <button type="submit" class="btn btn-primary">@lang('main.callback_btn')</button>
             </div>
         </div>
     </form>

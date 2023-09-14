@@ -9,15 +9,10 @@
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <h2>{{$post->title}}</h2>
-                    <ul class="bread-list">
-                        <li>
-                            <div class="speedbar">
-                                <a href="{{route('web.home')}}"><span> Homepage</span></a>
-                                <a href="{{route('web.blog.index')}}"><span> &raquo; Blog</span></a>
-                                <span> &raquo; {{$post->title}}</span>
-                            </div>
-                        </li>
-                    </ul>
+                    <x-breadcrumbs>
+                        <a href="{{route('web.blog.index')}}"><span> &raquo; @lang('main.news')</span></a>
+                        <span> &raquo; {{$post->title}}</span>
+                    </x-breadcrumbs>
                 </div>
             </div>
         </div>

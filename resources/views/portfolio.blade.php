@@ -5,15 +5,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
-                    <h2>Наши проекты</h2>
-                    <ul class="bread-list">
-                        <li>
-                            <div class="speedbar">
-                                <a href="{{route('web.home')}}"><span> Главная</span></a>
-                                <span> &raquo; Наши проекты</span>
-                            </div>
-                        </li>
-                    </ul>
+                    <h2>@lang('main.our_projects')</h2>
+                    <x-breadcrumbs>
+                        <span> &raquo; @lang('main.our_projects')</span>
+                    </x-breadcrumbs>
                 </div>
             </div>
         </div>

@@ -9,17 +9,17 @@
         <div class="header-widget">
             <div class="single-widget">
                 <i class="fa fa-clock-o"></i>
-                <h4>Иш вақти</h4>
+                <h4>@lang('main.header_hours')</h4>
                 <p>{{$settings->working_hours}}</p>
             </div>
             <div class="single-widget">
                 <i class="fa fa-envelope"></i>
-                <h4>Email</h4>
+                <h4>@lang('main.header_email')</h4>
                 <p><a href="mailto:{{$settings->email}}">{{$settings->email}}</a></p>
             </div>
             <div class="single-widget">
                 <i class="fa fa-phone"></i>
-                <h4>Телефон</h4>
+                <h4>@lang('main.header_phone')</h4>
                 <p><a href="tel:{{$settings->phone}}">{{$settings->phone}}</a></p>
             </div>
         </div>

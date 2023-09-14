@@ -39,8 +39,8 @@
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="section-title">
-                        <div class="sec-t">Наши проекты</div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
+                        <div class="sec-t">@lang('main.our_projects')</div>
+                        <p>@lang('main.our_projects_text')</p>
                     </div>
                 </div>
             </div>
@@ -73,8 +73,8 @@
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="section-title">
-                        <div class="sec-t">Наша команда</div>
-                        <p>Краткое описание к данному блоку или любой текст.</p>
+                        <div class="sec-t">@lang('main.our_team')</div>
+                        <p>@lang('main.our_team_text')</p>
                     </div>
                 </div>
             </div>
@@ -92,8 +92,8 @@
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="section-title">
-                        <div class="sec-t">новости компании</div>
-                        <p>Краткое описание к данному блоку или любой текст.</p>
+                        <div class="sec-t">@lang('main.news')</div>
+                        <p>@lang('main.news_text')</p>
                     </div>
                 </div>
             </div>

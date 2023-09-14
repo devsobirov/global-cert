@@ -5,15 +5,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
-                    <h2>Обратная связь</h2>
-                    <ul class="bread-list">
-                        <li>
-                            <div class="speedbar">
-                                <a href="{{route('web.home')}}"><span> Главная</span></a>
-                                <span> &raquo; Обратная связь</span>
-                            </div>
-                        </li>
-                    </ul>
+                    <h2>@lang('main.contact')</h2>
+                    <x-breadcrumbs>
+                        <span> &raquo; @lang('main.contact')</span>
+                    </x-breadcrumbs>
                 </div>
             </div>
         </div>
@@ -46,36 +41,33 @@
                                     @csrf
                                     <div id="contact-us" class="contact-us">
                                         <div class="col-md-12">
-                                            <h4>Контакты</h4>
+                                            <h4>@lang('main.contact')</h4>
                                             <br>
                                             <div class="quote">
-                                                <b>Уважаемые посетители нашего сайта!</b><br>
-                                                У Вас есть вопрос, мы будем рады Вас выслушать и постараемся ответить. <br>
-                                                Мы оставляем за собой право не отвечать на реплики и не публиковать письма посетителей, которые, по нашему мнению, не несут смысловой нагрузки или иным причинам не нуждаются в ответах.<br>
-                                                Рекомендуем не использовать ненормативную лексику, поскольку такие сообщения удаляются автоматически.
+                                                <b>@lang('main.contact_header')</b><br>@lang('main.contact_info')
                                             </div>
                                             <hr>
                                         </div>
 
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="name">Ваше имя:</label>
-                                                <input type="text" name="name" placeholder="Ваше имя" required="required" value="{{old('name')}}">
+                                                <label for="name">@lang('main.contact_name'):</label>
+                                                <input type="text" name="name" placeholder="@lang('main.contact_name')" required="required" value="{{old('name')}}">
                                                 @error('name') <p class="text-danger" style="padding: 0 10px">{{$message}}</p> @enderror
                                             </div>
                                         </div>
 
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="subject">Компания:</label>
-                                                <input type="text" name="subject" placeholder="Ваша компания" required="required" value="{{old('subject')}}">
+                                                <label for="subject">@lang('main.contact_company'):</label>
+                                                <input type="text" name="subject" placeholder="@lang('main.contact_company')" required="required" value="{{old('subject')}}">
                                                 @error('subject') <p class="text-danger" style="padding: 0 10px">{{$message}}</p> @enderror
                                             </div>
                                         </div>
 
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label for="email">Ваш Email или номер телефона:</label>
+                                                <label for="email">@lang('main.contact_phone')</label>
                                                 <input type="text" name="email" placeholder="example@mal.com, +555-111-22-33" required="required" value="{{old('email')}}">
                                                 @error('email') <p class="text-danger" style="padding: 0 10px">{{$message}}</p> @enderror
                                             </div>
@@ -83,8 +75,8 @@
 
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label for="message">Сообщение:</label>
-                                                <textarea name="content" rows="7" placeholder="Сообщение">{{old('content')}}</textarea>
+                                                <label for="message">@lang('main.contact_message'):</label>
+                                                <textarea name="content" rows="7" placeholder="@lang('main.contact_message')">{{old('content')}}</textarea>
                                                 @error('content') <p class="text-danger" style="padding: 0 10px">{{$message}}</p> @enderror
                                             </div>
                                         </div>
@@ -92,7 +84,7 @@
 
                                         <div class="col-md-12">
                                             <div class="form-group button">
-                                                <button type="submit" class="btn primary">Отправить сообщение</button>
+                                                <button type="submit" class="btn primary">@lang('main.btn_send_msg')</button>
                                             </div>
                                         </div>
                                     </div>

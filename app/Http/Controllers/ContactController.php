@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ContactStoreRequest as ContactRequest;
 use App\Models\Message;
 use App\Models\User;
 use App\Notifications\NewCallMeMessage;
@@ -16,14 +17,9 @@ class ContactController extends Controller
         return view('contact');
     }
 
-    public function save(Request $request)
+    public function save(ContactRequest $request)
     {
-        $data = $request->validate([
-            'name' => 'required|string|max:100',
-            'email' => 'required|string|max:255',
-            'subject' => 'required|string|max:255',
-            'content' => 'required|string|max:1000'
-        ]);
+        $data = $request->validated();
 
         $data['payload'] = json_encode($data);
         $message = Message::create($data);

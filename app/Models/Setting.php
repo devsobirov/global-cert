@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 use Spatie\Translatable\HasTranslations;
 
 class Setting extends Model
@@ -17,6 +18,8 @@ class Setting extends Model
         'telegram','instagram','facebook','twitter','youtube','vk','ok',
         'map_script','google_metrics','yandex_metrics'
     ];
+
+    public static array $baseTables = ['users', 'banners', 'certificates', 'menus', 'posts', 'pages', 'settings'];
 
     protected $hidden = ['id'];
 

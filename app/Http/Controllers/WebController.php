@@ -40,7 +40,7 @@ class WebController extends Controller
         if ($attempted) {
             $request->validate(['certificate' => 'required|string']);
             $code = $request->post('certificate');
-            $certificate = Certificate::first(); //where('number', $code)->
+            $certificate = Certificate::where('number', $code)->first();
         }
 
         return view('certificate', compact('code', 'certificate', 'attempted'));

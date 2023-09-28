@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-3 col-sm-3 col-xs-12">
         <div class="logo">
-            <a href=""><img src="{{asset($settings->logo ?? 'assets/images/logo.png')}}" alt="logo" style="max-height: 85px; display: inline-block"></a>
+            <a href="{{route('web.home')}}"><img src="{{asset($settings->logo ?? 'assets/images/logo.png')}}" alt="logo" style="max-height: 85px; display: inline-block"></a>
         </div>
         <div class="mobile-nav"></div>
     </div>

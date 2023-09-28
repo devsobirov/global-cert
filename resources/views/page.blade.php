@@ -27,7 +27,6 @@
                                     <div class="single-blog">
                                         <div class="blog-post">
                                             <div class="blog-info">
-                                                <h2>{!! $page->title !!}</h2>
                                                 <div class="text-justify full-text">
                                                     {!! $page->content !!}
                                                 </div>

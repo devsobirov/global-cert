@@ -18,9 +18,9 @@
         <div class="container">
             <div class="row">
                 <div class="blog-main">
-
+                    <div id='dle-content'>
                     @if($attempted)
-                        <div class="col-md-11" style="margin-top: 30px">
+                        <div class="col-md-12" style="margin-top: 30px">
                             @empty($certificate)
                                 <div class="alert alert-danger alert-dismissible">
                                     <div style="display: flex; gap: 20px;">
@@ -37,7 +37,7 @@
                                     <a class="btn-close" data-bs-dismiss="alert" aria-label="close"></a>
                                 </div>
                             @else
-                                <div class="contact-us" style="width: 100%; padding: 10px;">
+                                <div class="contact-us"  id="sendmail" style="width: 100%; padding: 10px;">
                                     <table class="table" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                         <tr>
@@ -69,8 +69,9 @@
                             @endempty
                         </div>
                     @endif
+                    </div>
 
-                    <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-md-12 col-sm-12 col-xs-12" style="padding:0 30px">
                         <div class="row">
                             @if ($message = Session::get('success'))
                                 <div class="alert alert-success alert-dismissible">
@@ -92,7 +93,7 @@
                                 <form method="POST" id="sendmail" action="{{route('web.certificate')}}">
                                     @csrf
                                     <input type="hidden" name="attempted" value="1">
-                                    <div id="contact-us" class="contact-us">
+                                    <div id="contact-us" class="contact-us w-100" style="display: block; width: 100%">
                                         <div class="col-md-12">
                                             <h4>@lang('main.certificate_check')</h4>
                                             <br>
@@ -106,7 +107,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="name">@lang('main.certificate_number')</label>
-                                                <input type="text" name="certificate" placeholder="@lang('main.certificate_number')" required="required" value="{{$code ?? old('certificate')}}">
+                                                <input type="number" name="certificate" placeholder="@lang('main.certificate_number')" required="required" value="{{$code ?? old('certificate')}}">
                                                 @error('certificate') <p class="text-danger" style="padding: 0 10px">{{$message}}</p> @enderror
                                             </div>
                                         </div>

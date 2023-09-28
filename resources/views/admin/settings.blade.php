@@ -81,7 +81,7 @@
                     @foreach($item->contacts as $field)
                         <div class="mb-3">
                             <label class="form-label required">{{$field}}</label>
-                            <input type="text" name="$field" class="form-control @error($field) is-invalid @enderror" placeholder="..." value="{{ $item->$field ?? old($field) }}">
+                            <input type="text" name="{{$field}}" class="form-control @error($field) is-invalid @enderror" placeholder="..." value="{{ $item->$field ?? old($field) }}">
                         </div>
                         @error($field)
                         <div class="invalid-feedback">{{ $message }}</div>

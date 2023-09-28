@@ -56,8 +56,8 @@ class Menu extends Model implements Linkable
             : '#';
     }
 
-    public static function getParentsForList() : Collection
+    public static function getParentsForList($exceptId = null) : Collection
     {
-        return self::select('id', 'title', 'url')->where('url', '')->whereNull('parent_id')->orderBy('order')->get();
+        return self::select('id', 'title', 'url')->whereNot('id', $exceptId)->whereNull('url')->whereNull('parent_id')->orderBy('order')->get();
     }
 }

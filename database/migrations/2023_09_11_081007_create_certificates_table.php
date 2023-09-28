@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('number')->unique();
             $table->timestamp('issue_date');
-            $table->timestamp('expiry_date');
+            $table->timestamp('expiry_date')->nullable();
             $table->string('address')->nullable();
             $table->string('accreditation')->nullable();
             $table->string('scope_of_work')->nullable();

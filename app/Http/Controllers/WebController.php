@@ -15,7 +15,7 @@ class WebController extends Controller
 {
     public function homepage()
     {
-        $banners = Banner::select(['id', 'intro', 'title', 'image', 'order'])->orderBy('order', 'asc')->limit(6)->get();
+        $banners = Banner::select(['id', 'intro', 'title', 'image', 'order', 'btn_link', 'btn_label'])->orderBy('order', 'asc')->limit(6)->get();
         $blocks = Block::where('status', true)->orderBy('order')->get();
         $projects = Project::orderBy('order')->limit(6)->get();
         $team = Employee::orderBy('order')->get();

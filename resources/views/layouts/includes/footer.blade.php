@@ -4,6 +4,8 @@
             <div class="row">
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <div class="single-widget address">
+{{--                        <img src="{{asset($settings->footer_logo)}}" alt="{{$settings->meta_title}}"--}}
+{{--                             style="display: block; max-height: 85px;">--}}
                         <h2>@lang('main.footer_header')</h2>
                         <p>@lang('main.footer_info')</p>
                         <ul class="list">

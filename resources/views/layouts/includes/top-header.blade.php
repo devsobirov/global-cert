@@ -22,6 +22,24 @@
                 <h4>@lang('main.header_phone')</h4>
                 <p><a href="tel:{{$settings->phone}}">{{$settings->phone}}</a></p>
             </div>
+
+            <ul class="single-widget">
+                <li class="" style="margin-left: auto">
+                @foreach(LaravelLocalization::getLocalesOrder() as $localeCode => $properties)
+                    @if($localeCode == app()->getLocale())
+                    <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                        <img src="{{asset('img/'.$localeCode.'.png')}}" style="margin-right: 8px; display: inline-block" alt="">{{ ucfirst($properties['native']) }} <i class="fa fa-angle-down"></i>
+                    </a>
+                    @else
+                    <ul class="drop-down">
+                        <li class=""><a href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                <img src="{{asset('img/'.$localeCode.'.png')}}" style="margin-right: 8px; display: inline-block" alt="">{{ ucfirst($properties['native']) }}</a>
+                        </li>
+                    </ul>
+                    @endif
+                @endforeach
+                </li>
+            </ul>
         </div>
     </div>
 </div>

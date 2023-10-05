@@ -51,7 +51,6 @@ class MenuController extends Controller
         $data = $this->getValidatedData($request);
         $request->validate(['lang' => 'array']);
 
-
         $menu->update($data);
         foreach ($request->lang as $locale => $data) {
             $menu = $this->setTranslations($menu, $locale, $data);
@@ -72,11 +71,14 @@ class MenuController extends Controller
 
     protected function getValidatedData(Request $request)
     {
-        return $request->validate([
+        $data = $request->validate([
             'url'   => 'nullable|string',
             'parent_id' => 'nullable|exists:menus,id',
             'show_in_footer' => 'nullable|boolean',
             'order' => 'integer'
         ]);
+
+        $data['show_in_footer'] = $data['show_in_footer'] ?? false;
+        return $data;
     }
 }

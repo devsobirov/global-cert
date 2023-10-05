@@ -110,6 +110,10 @@
             -moz-transition: all 0.4s ease;
             transition: all 0.4s ease;
         }
+
+        .slicknav_menu .slicknav_icon-bar {
+            box-shadow: 0 2px 0 rgba(0,0,0,.75);
+        }
     </style>
 
     {!! $settings->google_metrics !!}
